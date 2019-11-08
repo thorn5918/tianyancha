@@ -10,7 +10,7 @@ if __name__ == '__main__':
         "X-Auth-Token": "",
         "User-Agent": "com.tianyancha.skyeye/Dalvik/2.1.0 (Linux; U; Android 9; oppo qbs Build/PKQ1.180819.001;)",
         "version": "Android 8.5.1",
-        "deviceID": "TYC-503279d2882949faab32f7194d154758",
+        "deviceID": "",
         "channelID": "PPZhuShou",
         "Content-Type": "application/json",
         "Host": "api2.tianyancha.com",
@@ -19,7 +19,9 @@ if __name__ == '__main__':
     }
 
     # 获取天眼查app的Authorization
-    header['Authorization'] = getAuthorized()['authorized']
+    authorized = getAuthorized()
+    header['Authorization'] = authorized['authorized']
+    header['deviceID'] = authorized['authorized']
     # 调用搜索接口获取公司列表
     resp = requests.get(searchUrl.format("北京公象未来科技"), headers= header, verify=False)
     print(resp.text)
