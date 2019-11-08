@@ -1,0 +1,25 @@
+import  requests
+
+def getAuthorized():
+    jsonNode = requests.get("http://tycservice.vipgz2.idcfengye.com/tyc/getAuthorized?key=gTK9NNbu").json()
+    return jsonNode
+if __name__ == '__main__':
+    searchUrl = "https://api2.tianyancha.com/services/v3/search/sNorV3/{}?allowModifyQuery=1&pageSize=10&pageNum=1&sortType=0"
+    header={
+        "Authorization": "",
+        "X-Auth-Token": "",
+        "User-Agent": "com.tianyancha.skyeye/Dalvik/2.1.0 (Linux; U; Android 9; oppo qbs Build/PKQ1.180819.001;)",
+        "version": "Android 8.5.1",
+        "deviceID": "TYC-503279d2882949faab32f7194d154758",
+        "channelID": "PPZhuShou",
+        "Content-Type": "application/json",
+        "Host": "api2.tianyancha.com",
+        "Connection": "Keep-Alive",
+        "Accept-Encoding": "gzip",
+    }
+
+    # 获取天眼查app的Authorization
+    header['Authorization'] = getAuthorized()['authorized']
+    # 调用搜索接口获取公司列表
+    resp = requests.get(searchUrl.format("北京公象未来科技"), headers= header, verify=False)
+    print(resp.text)
