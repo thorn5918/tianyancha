@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
     # 获取天眼查app的Authorization
     authorized = getAuthorized()
-    header['Authorization'] = authorized['authorized']
+    header['Authorization'] = authorized['Authorization']
     header['deviceID'] = authorized['deviceID']
     # 调用搜索接口获取公司列表
     resp = requests.get(searchUrl.format("北京公象未来科技"), headers= header, verify=False)
