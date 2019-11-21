@@ -1,7 +1,7 @@
 import  requests
 
 def getAuthorized():
-    jsonNode = requests.get("http://tycservice.vipgz2.idcfengye.com/tyc/vip/getAuthorization?deviceId=095f80d134fb2b0873a47fe445ed0ca5").json()
+    jsonNode = requests.get("http://tycservice.vipgz2.idcfengye.com/tyc/vip/getAuthorization?deviceId=bl37ohp9km3lfsmegavf3yu68lgytx6p").json()
     return jsonNode
 if __name__ == '__main__':
     searchUrl = "https://api2.tianyancha.com/services/v3/search/sNorV3/{}?allowModifyQuery=1&pageSize=10&pageNum=1&sortType=0"
